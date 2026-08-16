@@ -4,47 +4,19 @@ import "./App.css";
 const API_URL = "https://jsonplaceholder.typicode.com";
  
 function App() {
-  // =====================================================
-  // Users
-  // =====================================================
- 
   const [users, setUsers] = useState([]);
   const [usersLoading, setUsersLoading] = useState(true);
   const [usersError, setUsersError] = useState("");
- 
-  // =====================================================
-  // Search + sort
-  // =====================================================
- 
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("name");
- 
-  // =====================================================
-  // Selected user
-  // =====================================================
- 
   const [selectedUser, setSelectedUser] = useState(null);
- 
-  // =====================================================
-  // Posts
-  // =====================================================
- 
   const [posts, setPosts] = useState([]);
   const [postsLoading, setPostsLoading] = useState(false);
   const [postsError, setPostsError] = useState("");
- 
-  // =====================================================
-  // Todos
-  // =====================================================
- 
   const [todos, setTodos] = useState([]);
   const [todosLoading, setTodosLoading] = useState(false);
   const [todosError, setTodosError] = useState("");
- 
-  // =====================================================
-  // Fetch all users
-  // =====================================================
- 
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -70,10 +42,6 @@ function App() {
     fetchUsers();
   }, []);
  
-  // =====================================================
-  // Filter users
-  // =====================================================
- 
   const filteredUsers = users.filter((user) => {
     const searchText = search.toLowerCase();
  
@@ -82,11 +50,7 @@ function App() {
       user.company.name.toLowerCase().includes(searchText)
     );
   });
- 
-  // =====================================================
-  // Sort users
-  // =====================================================
- 
+
   const sortedUsers = [...filteredUsers].sort((a, b) => {
     if (sortBy === "name") {
       return a.name.localeCompare(b.name);
@@ -94,10 +58,6 @@ function App() {
  
     return a.company.name.localeCompare(b.company.name);
   });
- 
-  // =====================================================
-  // Fetch posts + todos for selected user
-  // =====================================================
  
   useEffect(() => {
     if (!selectedUser) {
@@ -138,9 +98,6 @@ function App() {
         const postsData = await postsResponse.json();
         const todosData = await todosResponse.json();
  
-        // IMPORTANT:
-        // Only update state if this is still
-        // the currently selected user.
         if (!ignore) {
           setPosts(postsData);
           setTodos(todosData);
@@ -159,27 +116,15 @@ function App() {
     };
  
     fetchUserData();
- 
-    // =================================================
-    // Cleanup
-    // =================================================
- 
+
     return () => {
       ignore = true;
     };
   }, [selectedUser]);
- 
-  // =====================================================
-  // Select user
-  // =====================================================
- 
+
   const handleSelectUser = (user) => {
     setSelectedUser(user);
   };
- 
-  // =====================================================
-  // Close details
-  // =====================================================
  
   const handleCloseDetails = () => {
     setSelectedUser(null);
@@ -188,11 +133,7 @@ function App() {
     setPostsError("");
     setTodosError("");
   };
- 
-  // =====================================================
-  // Todo statistics
-  // =====================================================
- 
+
   const completedTodos = todos.filter(
     (todo) => todo.completed
   ).length;
@@ -208,10 +149,6 @@ function App() {
         )
       : 0;
  
-  // =====================================================
-  // Loading users
-  // =====================================================
- 
   if (usersLoading) {
     return (
       <div className="loading-screen">
@@ -220,17 +157,9 @@ function App() {
       </div>
     );
   }
- 
-  // =====================================================
-  // Main UI
-  // =====================================================
- 
+
   return (
     <div className="app">
-      {/* ===============================================
-          Header
-          =============================================== */}
- 
       <header className="header">
         <div>
           <p className="eyebrow">JSONPlaceholder</p>
@@ -248,11 +177,6 @@ function App() {
           <span>Team members</span>
         </div>
       </header>
- 
-      {/* ===============================================
-          User error
-          =============================================== */}
- 
       {usersError && (
         <div className="error-box">
           <strong>Unable to load team</strong>
@@ -262,10 +186,6 @@ function App() {
  
       {!usersError && (
         <>
-          {/* ===========================================
-              Controls
-              =========================================== */}
- 
           <section className="controls">
             <div className="search-wrapper">
               <span className="search-icon">⌕</span>
@@ -312,11 +232,7 @@ function App() {
               </select>
             </div>
           </section>
- 
-          {/* ===========================================
-              Results count
-              =========================================== */}
- 
+
           <div className="results-header">
             <p>
               Showing{" "}
@@ -324,10 +240,6 @@ function App() {
               of <strong>{users.length}</strong> people
             </p>
           </div>
- 
-          {/* ===========================================
-              No results
-              =========================================== */}
  
           {sortedUsers.length === 0 ? (
             <div className="empty-state">
@@ -346,10 +258,7 @@ function App() {
               </button>
             </div>
           ) : (
-            /* =========================================
-               User grid
-               ========================================= */
- 
+            
             <section className="user-grid">
               {sortedUsers.map((user) => (
                 <article
@@ -403,10 +312,6 @@ function App() {
         </>
       )}
  
-      {/* =================================================
-          User Detail Panel
-          ================================================= */}
- 
       {selectedUser && (
         <div
           className="panel-overlay"
@@ -419,12 +324,6 @@ function App() {
             }
           >
             
-JSONPlaceholder - Free Fake REST API
- 
-{/* =========================================
-                Panel Header
-                ========================================= */}
- 
             <div className="panel-header">
               <div className="profile-heading">
                 <div className="large-avatar">
@@ -460,10 +359,6 @@ JSONPlaceholder - Free Fake REST API
               </button>
             </div>
  
-            {/* =========================================
-                Contact Information
-                ========================================= */}
- 
             <section className="profile-info">
               <div>
                 <span>Email</span>
@@ -493,11 +388,7 @@ JSONPlaceholder - Free Fake REST API
                 </strong>
               </div>
             </section>
- 
-            {/* =========================================
-                Posts
-                ========================================= */}
- 
+
             <section className="panel-section">
               <div className="section-heading">
                 <div>
@@ -549,10 +440,6 @@ JSONPlaceholder - Free Fake REST API
                   </article>
                 ))}
             </section>
- 
-            {/* =========================================
-                Todos
-                ========================================= */}
  
             <section className="panel-section">
               <div className="section-heading">
