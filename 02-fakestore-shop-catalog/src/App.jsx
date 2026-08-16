@@ -4,34 +4,14 @@ import "./App.css";
 const API_URL = "https://fakestoreapi.com";
  
 function App() {
-  // -----------------------------
-  // Product state
-  // -----------------------------
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
- 
-  // -----------------------------
-  // UI state
-  // -----------------------------
   const [category, setCategory] = useState("all");
   const [sortBy, setSortBy] = useState("default");
- 
-  // -----------------------------
-  // Loading / error
-  // -----------------------------
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
- 
-  // -----------------------------
-  // Cart state
-  // -----------------------------
   const [cart, setCart] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
- 
-  // =====================================================
-  // Fetch products + categories
-  // =====================================================
- 
   useEffect(() => {
     const fetchShopData = async () => {
       try {
@@ -61,22 +41,14 @@ function App() {
  
     fetchShopData();
   }, []);
- 
-  // =====================================================
-  // Filter + sort products
-  // =====================================================
- 
+
   const displayedProducts = useMemo(() => {
     let result = [...products];
- 
-    // Filter
     if (category !== "all") {
       result = result.filter(
         (product) => product.category === category
       );
     }
- 
-    // Sort
     if (sortBy === "price-low") {
       result.sort((a, b) => a.price - b.price);
     }
@@ -93,10 +65,6 @@ function App() {
  
     return result;
   }, [products, category, sortBy]);
- 
-  // =====================================================
-  // Add to cart
-  // =====================================================
  
   const addToCart = (product) => {
     setCart((currentCart) => {
@@ -125,10 +93,6 @@ function App() {
     });
   };
  
-  // =====================================================
-  // Increase quantity
-  // =====================================================
- 
   const increaseQuantity = (productId) => {
     setCart((currentCart) =>
       currentCart.map((item) =>
@@ -141,11 +105,7 @@ function App() {
       )
     );
   };
- 
-  // =====================================================
-  // Decrease quantity
-  // =====================================================
- 
+
   const decreaseQuantity = (productId) => {
     setCart((currentCart) =>
       currentCart
@@ -160,21 +120,13 @@ function App() {
         .filter((item) => item.quantity > 0)
     );
   };
- 
-  // =====================================================
-  // Remove item
-  // =====================================================
- 
+
   const removeFromCart = (productId) => {
     setCart((currentCart) =>
       currentCart.filter((item) => item.id !== productId)
     );
   };
- 
-  // =====================================================
-  // Cart calculations using reduce()
-  // =====================================================
- 
+
   const cartItemCount = cart.reduce(
     (total, item) => total + item.quantity,
     0
@@ -184,11 +136,7 @@ function App() {
     (total, item) => total + item.price * item.quantity,
     0
   );
- 
-  // =====================================================
-  // Loading state
-  // =====================================================
- 
+
   if (loading) {
     return (
       <div className="loading-screen">
@@ -197,11 +145,7 @@ function App() {
       </div>
     );
   }
- 
-  // =====================================================
-  // Main UI
-  // =====================================================
- 
+
   return (
     <div className="app">
       {/* Header */}
@@ -384,10 +328,7 @@ function App() {
           )}
         </>
       )}
- 
-      {/* =================================================
-          Cart Drawer
-          ================================================= */}
+     
       {cartOpen && (
         <div
           className="drawer-overlay"
