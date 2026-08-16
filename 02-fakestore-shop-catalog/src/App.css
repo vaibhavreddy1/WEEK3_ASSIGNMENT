@@ -1,11 +1,18 @@
 
+<<<<<<< HEAD
  
+=======
+>>>>>>> 75ad1fa (3nd assignment)
 .app {
   width: min(1200px, 92%);
   margin: 0 auto;
   padding: 48px 0;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 .header {
   display: flex;
   justify-content: space-between;
@@ -36,7 +43,11 @@
   color: #6b7280;
   line-height: 1.6;
 }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 75ad1fa (3nd assignment)
 .cart-button {
   display: flex;
   align-items: center;
@@ -124,7 +135,11 @@
 .control-group select:focus {
   border-color: #6366f1;
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 75ad1fa (3nd assignment)
 .results-header {
   display: flex;
   justify-content: space-between;
@@ -156,7 +171,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 75ad1fa (3nd assignment)
 .product-card {
   display: flex;
   flex-direction: column;
@@ -325,7 +344,11 @@
     transform: rotate(360deg);
   }
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 .error-box {
   padding: 16px;
  
@@ -368,7 +391,11 @@
  
   cursor: pointer;
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 75ad1fa (3nd assignment)
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -475,6 +502,10 @@
   font-size: 14px;
 }
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -519,7 +550,11 @@
  
   cursor: pointer;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 .empty-cart {
   display: flex;
   flex-direction: column;
@@ -546,7 +581,11 @@
  
   color: #6b7280;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 .cart-summary {
   padding: 20px;
  
@@ -590,7 +629,11 @@
  
   cursor: pointer;
 }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 75ad1fa (3nd assignment)
 @media (max-width: 1050px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
