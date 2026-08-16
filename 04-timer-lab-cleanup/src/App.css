@@ -1,0 +1,423 @@
+
+.app {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.header {
+  margin-bottom: 38px;
+}
+ 
+.eyebrow {
+  margin: 0 0 8px;
+ 
+  color: #c1673a;
+ 
+  font-size: 12px;
+  font-weight: 800;
+ 
+  letter-spacing: 0.12em;
+ 
+  text-transform: uppercase;
+}
+ 
+.header h1 {
+  margin: 0;
+ 
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1;
+ 
+  letter-spacing: -0.05em;
+}
+ 
+.subtitle {
+  max-width: 650px;
+ 
+  margin: 18px 0 0;
+ 
+  color: #6b7280;
+ 
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.tabs {
+  display: flex;
+ 
+  gap: 5px;
+ 
+  margin-bottom: 25px;
+  padding: 5px;
+ 
+  border: 1px solid #e5e7eb;
+  border-radius: 11px;
+ 
+  background: white;
+}
+ 
+.tab {
+  flex: 1;
+ 
+  padding: 12px 15px;
+ 
+  border: none;
+  border-radius: 7px;
+ 
+  background: transparent;
+ 
+  color: #6b7280;
+ 
+  font-size: 14px;
+  font-weight: 700;
+ 
+  cursor: pointer;
+ 
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+ 
+.tab:hover {
+  color: #111827;
+}
+ 
+.tab.active {
+  background: #111827;
+  color: white;
+}
+
+.timer-container {
+  min-height: 470px;
+ 
+  display: flex;
+  justify-content: center;
+}
+
+.timer-card {
+  width: 100%;
+ 
+  padding: 35px;
+ 
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+ 
+  background: white;
+ 
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.06);
+}
+ 
+.timer-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+ 
+  gap: 20px;
+}
+ 
+.timer-card-header h2 {
+  margin: 0;
+ 
+  font-size: 27px;
+}
+ 
+.timer-card-header .eyebrow {
+  margin-bottom: 4px;
+}
+
+.status,
+.phase-badge {
+  padding: 6px 10px;
+ 
+  border-radius: 100px;
+ 
+  font-size: 11px;
+  font-weight: 800;
+ 
+  text-transform: uppercase;
+ 
+  letter-spacing: 0.05em;
+}
+ 
+.status {
+  background: #f3f4f6;
+ 
+  color: #6b7280;
+}
+ 
+.status.active {
+  background: #dcfce7;
+ 
+  color: #15803d;
+}
+ 
+.status.finished {
+  background: #fee2e2;
+ 
+  color: #dc2626;
+}
+ 
+.phase-badge.focus {
+  background: #ffedd5;
+ 
+  color: #c2410c;
+}
+ 
+.phase-badge.break {
+  background: #dcfce7;
+ 
+  color: #15803d;
+}
+
+.timer-display {
+  margin: 65px 0 45px;
+ 
+  text-align: center;
+ 
+  color: #111827;
+ 
+  font-family:
+    "IBM Plex Mono",
+    "Courier New",
+    monospace;
+ 
+  font-size: clamp(70px, 13vw, 120px);
+  font-weight: 600;
+ 
+  letter-spacing: -0.06em;
+ 
+  line-height: 1;
+}
+
+.timer-actions {
+  display: flex;
+  justify-content: center;
+ 
+  gap: 10px;
+}
+ 
+.primary-button,
+.secondary-button {
+  min-width: 110px;
+ 
+  padding: 12px 20px;
+ 
+  border-radius: 8px;
+ 
+  font-size: 14px;
+  font-weight: 700;
+ 
+  cursor: pointer;
+ 
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+ 
+.primary-button {
+  border: none;
+ 
+  background: #c1673a;
+  color: white;
+}
+ 
+.primary-button:hover {
+  background: #a9522d;
+  transform: translateY(-1px);
+}
+ 
+.secondary-button {
+  border: 1px solid #d1d5db;
+ 
+  background: white;
+  color: #374151;
+}
+ 
+.secondary-button:hover {
+  background: #f9fafb;
+}
+
+.countdown-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+ 
+  gap: 10px;
+ 
+  margin-top: 35px;
+}
+ 
+.countdown-inputs > div {
+  display: flex;
+  flex-direction: column;
+ 
+  gap: 6px;
+}
+ 
+.countdown-inputs label {
+  color: #9ca3af;
+ 
+  font-size: 11px;
+  font-weight: 700;
+ 
+  text-transform: uppercase;
+}
+ 
+.countdown-inputs input {
+  width: 100px;
+ 
+  padding: 10px;
+ 
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+ 
+  outline: none;
+ 
+  text-align: center;
+ 
+  font-family:
+    "IBM Plex Mono",
+    "Courier New",
+    monospace;
+ 
+  font-size: 20px;
+}
+ 
+.countdown-inputs input:focus {
+  border-color: #c1673a;
+}
+ 
+.countdown-inputs input:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+ 
+.countdown-inputs > span {
+  padding-bottom: 10px;
+ 
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.pomodoro-card {
+  text-align: center;
+}
+ 
+.pomodoro-card .timer-card-header {
+  text-align: left;
+}
+ 
+.pomodoro-cycle {
+  margin-top: 35px;
+ 
+  color: #9ca3af;
+ 
+  font-size: 12px;
+  font-weight: 700;
+ 
+  text-transform: uppercase;
+ 
+  letter-spacing: 0.08em;
+}
+ 
+.phase-text {
+  max-width: 400px;
+ 
+  margin: -20px auto 35px;
+ 
+  color: #6b7280;
+ 
+  font-size: 14px;
+}
+
+.cleanup-note {
+  display: flex;
+  align-items: flex-start;
+ 
+  gap: 13px;
+ 
+  margin-top: 25px;
+  padding: 16px 18px;
+ 
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+ 
+  background: white;
+}
+ 
+.cleanup-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  flex-shrink: 0;
+ 
+  width: 25px;
+  height: 25px;
+ 
+  border-radius: 50%;
+ 
+  background: #dcfce7;
+ 
+  color: #15803d;
+ 
+  font-size: 13px;
+  font-weight: 800;
+}
+ 
+.cleanup-note strong {
+  font-size: 13px;
+}
+ 
+.cleanup-note p {
+  margin: 3px 0 0;
+ 
+  color: #6b7280;
+ 
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: 94%;
+    padding: 30px 0;
+  }
+ 
+  .tabs {
+    flex-direction: column;
+  }
+ 
+  .tab {
+    width: 100%;
+  }
+ 
+  .timer-card {
+    padding: 22px;
+  }
+ 
+  .timer-display {
+    margin: 55px 0 35px;
+ 
+    font-size: 65px;
+  }
+ 
+  .countdown-inputs input {
+    width: 85px;
+  }
+ 
+  .timer-actions {
+    flex-direction: column;
+  }
+ 
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+ 
+  .cleanup-note {
+    margin-bottom: 20px;
+  }
+}
+ 
