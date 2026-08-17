@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "title": "learn express properly",
+    "description": "Build a REST API using Node and Express.",
+    "completed": false,
+    "createdAt": "2026-08-17T10:00:00.000Z"
+  }
+]
